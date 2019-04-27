@@ -1,11 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+  <meta charset="utf-8">
+  <title>Cryptocurrency Pricing Application</title>
 </head>
 
-<body>
-coucou
-</body>
+  <body>
+    <div class="container" id="app">
+      <h3 class="text-center">Boc Students</h3>
+      <div class="columns medium-4" v-for="(result, index) in results">
+    <div class="card">
+    
+      <div class="card-divider">
+        <p>{{ result.name }}</p>
+      </div>
+      <div class="card-section">
+        <p>note: {{ result.grade }}</p>
+      </div>
+    </div>
+  </div>
+    </div>
 
-
-
+    <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    	    <script src="vueApp.js"></script>
+    	
+  </body>
 </html>
