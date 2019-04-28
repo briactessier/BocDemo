@@ -1,6 +1,6 @@
 
 
-      const url = "/students";
+      const url = "./students";
 
 const vm = new Vue({
         el: '#app',

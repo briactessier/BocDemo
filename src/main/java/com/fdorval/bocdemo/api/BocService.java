@@ -17,9 +17,6 @@ public class BocService {
 	@Autowired 
 	FireBaseDao fireBaseDao;
 	
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
     @RequestMapping("/students")
     public List<Student> getStudents() throws TechnicalException {
 		return fireBaseDao.getStudents();

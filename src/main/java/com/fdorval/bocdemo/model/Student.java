@@ -1,9 +1,36 @@
 package com.fdorval.bocdemo.model;
 
+/**
+ * bean
+ * @author franc
+ *
+ */
 public class Student {
+	
+	/**
+	 * student name
+	 */
 	String name;
 	
+	/**
+	 * student grade
+	 */
 	Integer grade;
+
+	/**
+	 * constructeur
+	 */
+	Student(){	
+	}
+	
+	/**
+	 * constructeur
+	 */
+	public Student(String name, Integer grade) {
+		super();
+		this.name = name;
+		this.grade = grade;
+	}
 
 
 	public String getName() {
