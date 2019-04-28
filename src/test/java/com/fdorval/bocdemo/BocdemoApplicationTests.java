@@ -12,9 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.fdorval.bocdemo.api.BocService;
-import com.fdorval.bocdemo.dao.stub.FireBaseDaoStub;
 import com.fdorval.bocdemo.model.Student;
-import com.fdorval.bocdemo.util.exception.TechnicalException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
