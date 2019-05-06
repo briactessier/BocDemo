@@ -30,6 +30,7 @@ public class BocdemoApplicationTests {
 			for (Student student : students) {
 				LOG.info("-> " + student);
 			}
+			Assert.assertEquals(4, students.size());
 
 		} catch (Exception e) {
 			Assert.fail();
