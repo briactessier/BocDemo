@@ -17,6 +17,17 @@ import com.fdorval.bocdemo.model.Student;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class BocdemoApplicationTests {
+	
+	////////////////////////////////////////////////////////////////////
+	//changez-moi pour voir ce qui se passe
+	private static final int EXPECTED_STUDENTS_NUMBER = 3;
+	// .
+	// ▄██████████████▄▐█▄▄▄▄█▌
+	// ██████▌▄▌▄▐▐▌███▌▀▀██▀▀
+	// ████▄█▌▄▌▄▐▐▌▀███▄▄█▌
+	// ▄▄▄▄▄██████████████
+	////////////////////////////////////////////////////////////////////
+
 
 	Logger LOG = LoggerFactory.getLogger(BocdemoApplicationTests.class);
 
@@ -30,7 +41,7 @@ public class BocdemoApplicationTests {
 			for (Student student : students) {
 				LOG.info("-> " + student);
 			}
-			Assert.assertEquals(4, students.size());
+			Assert.assertEquals(EXPECTED_STUDENTS_NUMBER, students.size());
 
 		} catch (Exception e) {
 			Assert.fail();
