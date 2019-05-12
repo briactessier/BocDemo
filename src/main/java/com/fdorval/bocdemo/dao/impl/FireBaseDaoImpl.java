@@ -1,9 +1,7 @@
 package com.fdorval.bocdemo.dao.impl;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Semaphore;
 
 import org.slf4j.Logger;

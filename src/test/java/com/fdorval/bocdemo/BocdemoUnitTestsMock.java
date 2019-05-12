@@ -10,28 +10,20 @@ import org.mockito.Mockito;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Repository;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.fdorval.bocdemo.business.BocBusiness;
 import com.fdorval.bocdemo.dao.FireBaseDao;
-import com.fdorval.bocdemo.dao.impl.FireBaseDaoImpl;
 import com.fdorval.bocdemo.dao.mock.FireBaseDaoMock;
-import com.fdorval.bocdemo.dao.stub.FireBaseDaoStub;
-import com.fdorval.bocdemo.mock.DaoTestConfiguration;
 import com.fdorval.bocdemo.model.Student;
-import com.fdorval.bocdemo.util.exception.TechnicalException;
 
 
 
 @RunWith(SpringRunner.class)
 @ActiveProfiles("test")
-@ContextConfiguration(classes = {BocBusiness.class, FireBaseDaoMock.class, DaoTestConfiguration.class})
+@ContextConfiguration(classes = {BocBusiness.class, FireBaseDaoMock.class})
 public class BocdemoUnitTestsMock {
 
 
@@ -61,7 +53,7 @@ public class BocdemoUnitTestsMock {
 			for (Student student : students) {
 				LOG.info("-> " + student);
 			}
-			Assert.assertEquals(students.get(1).getName(), "Voldemort");
+			Assert.assertEquals(students.get(2).getName(), "Voldemort");
 
 		} catch (Exception e) {
 			Assert.fail();

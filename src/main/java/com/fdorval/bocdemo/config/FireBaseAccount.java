@@ -1,9 +1,7 @@
 package com.fdorval.bocdemo.config;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -12,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Component;
 
 import com.fdorval.bocdemo.util.exception.TechnicalException;
 import com.google.auth.oauth2.GoogleCredentials;

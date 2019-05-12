@@ -1,8 +1,7 @@
 package com.fdorval.bocdemo;
 
-import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,15 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.fdorval.bocdemo.business.BocBusiness;
-import com.fdorval.bocdemo.dao.FireBaseDao;
-import com.fdorval.bocdemo.dao.stub.FireBaseDaoStub;
-import com.fdorval.bocdemo.model.Student;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 
 @RunWith(SpringRunner.class)
