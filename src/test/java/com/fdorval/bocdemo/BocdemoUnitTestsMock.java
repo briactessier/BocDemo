@@ -22,7 +22,7 @@ import com.fdorval.bocdemo.model.Student;
 
 
 @RunWith(SpringRunner.class)
-@ActiveProfiles("test")
+@ActiveProfiles({"test", "mock"})
 @ContextConfiguration(classes = {BocBusiness.class, FireBaseDaoMock.class})
 public class BocdemoUnitTestsMock {
 

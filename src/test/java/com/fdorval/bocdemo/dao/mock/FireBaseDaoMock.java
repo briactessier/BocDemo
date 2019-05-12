@@ -12,7 +12,7 @@ import com.fdorval.bocdemo.dao.FireBaseDao;
 import com.fdorval.bocdemo.model.Student;
 import com.fdorval.bocdemo.util.exception.TechnicalException;
 
-@Profile("test")
+@Profile("test & mock")
 @Primary
 @Repository
 public class FireBaseDaoMock implements FireBaseDao {
