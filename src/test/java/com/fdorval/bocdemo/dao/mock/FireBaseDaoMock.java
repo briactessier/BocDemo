@@ -4,6 +4,7 @@ package com.fdorval.bocdemo.dao.mock;
 import java.util.List;
 
 import org.mockito.Mockito;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ import com.fdorval.bocdemo.model.Student;
 import com.fdorval.bocdemo.util.exception.TechnicalException;
 
 @Profile("test")
+@Primary
 @Repository
 public class FireBaseDaoMock implements FireBaseDao {
 
