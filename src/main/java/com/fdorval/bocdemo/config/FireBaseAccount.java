@@ -39,8 +39,9 @@ public class FireBaseAccount {
 					.setCredentials(
 							GoogleCredentials.fromStream(new ClassPathResource("cle_firebase.json").getInputStream()))
 					.setDatabaseUrl("https://bocdemofb.firebaseio.com").build();
-
-			FirebaseApp.initializeApp(options);
+			  if(FirebaseApp.getApps().isEmpty()) { 
+					FirebaseApp.initializeApp(options);
+	            }
 
 		} catch (FileNotFoundException e) {
 
