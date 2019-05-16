@@ -32,4 +32,10 @@ run:
       paths:
       - target/*.war
       expire_in: 1 week
+      
+docker:
+    stage: run
+    script:
+        - docker build .
+
     
