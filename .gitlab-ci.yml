@@ -1,4 +1,5 @@
-image: maven:latest
+
+image: gitlab/dind
 
 stages:
   - build
@@ -15,16 +16,22 @@ cache:
     - target/
 
 build:
+  image: maven:latest
+
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS compile
 
 test:
+  image: maven:latest
+
   stage: test
   script:
     - mvn $MAVEN_CLI_OPTS test
 
 run:
+  image: maven:latest
+
   stage: run
   script:
     - mvn $MAVEN_CLI_OPTS package
