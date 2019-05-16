@@ -28,4 +28,8 @@ run:
   stage: run
   script:
     - mvn $MAVEN_CLI_OPTS package
+  artifacts:
+      paths:
+      - target/*.war
+      expire_in: 1 week
     
