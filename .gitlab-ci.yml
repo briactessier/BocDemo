@@ -1,0 +1,48 @@
+
+image: gitlab/dind
+
+stages:
+  - build
+  - test
+  - run
+
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+build:
+  image: maven:latest
+
+  stage: build
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
+
+test:
+  image: maven:latest
+
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test
+
+run:
+  image: maven:latest
+
+  stage: run
+  script:
+    - mvn $MAVEN_CLI_OPTS package
+  artifacts:
+      paths:
+      - target/*.war
+      expire_in: 1 week
+      
+docker:
+    stage: run
+    script:
+        - docker build .
+
+    
