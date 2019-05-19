@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fdorval.bocdemo.business.BocBusiness;
@@ -16,12 +17,12 @@ public class BocController {
 	@Autowired
 	BocBusiness bocBusiness;
 	
-	 @RequestMapping("/students")
+	 @RequestMapping(value ="/students",  method = RequestMethod.GET)
 	    public List<Student> getStudents() throws TechnicalException {
 			return bocBusiness.getStudents();
 	    }
 	 
-	 @RequestMapping("/average")
+	 @RequestMapping(value ="/average",  method =  RequestMethod.GET)
 	    public Integer getAverage() throws TechnicalException {
 			return bocBusiness.getAverageGrade();
 	    }
