@@ -2,7 +2,7 @@ node {
    def mvnHome
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
-      git branch: 'cours-2', url:'https://github.com/francois-dorval/BocDemo.git'
+      git branch: 'cours-3', url:'https://github.com/francois-dorval/BocDemo.git'
       mvnHome = tool 'M3'
    }
     
@@ -14,22 +14,25 @@ node {
    }
    stage('Build') {
       // Run the maven build
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.skip=true -Dmaven.test.failure.ignore clean package/)
       
    }
-     stage('Sonar') {
-      // Run the maven build
     
-         bat(/"${mvnHome}\bin\mvn" -Dsonar.projectKey=francois-dorval_BocDemo -Dsonar.organization=francois-dorval-github -Dsonar.host.url=https:\/\/sonarcloud.io -Dsonar.login=a632fb0c9e2e7e866096076eb5c2b49b88244d6d sonar:sonar/)
-      
-   }
    
    stage('Archive') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archiveArtifacts 'target/*.war'
+     // junit '**/target/surefire-reports/TEST-*.xml'
+     // archiveArtifacts 'target/*.war'
    }
-   stage('Deploy'){
-           build job: 'BocDemo-Deploy', parameters: [[$class: 'StringParameterValue', name: 'SOURCE_PROJECT', value: 'Pipeline-cours-2']]
+   stage('Docker'){
+     bat("docker build . -t\"bocdemo:${env.BUILD_ID}\"")
+     // pour que ça ne plante pas si il n'est pas là
+     bat("docker stop bocdemo-container || echo \"stop container fail... \"")
+     bat("docker rm bocdemo-container || echo \"stop container fail... \"")
 
+     bat("docker run -d -p8080:8080 --name bocdemo-container \"bocdemo:${env.BUILD_ID}\"")
+
+
+               
+                
    }
 }
