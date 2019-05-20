@@ -24,6 +24,7 @@ node {
      // junit '**/target/surefire-reports/TEST-*.xml'
      // archiveArtifacts 'target/*.war'
    }
+   
    stage('Docker'){
      bat("docker build . -t\"bocdemo:${env.BUILD_ID}\"")
      // pour que ça ne plante pas si il n'est pas là
