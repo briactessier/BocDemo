@@ -76,15 +76,11 @@ public class BocBusiness {
      */
     public List<Student> filterStudentsUnder(List<Student> students, int filterLimitGrade) throws TechnicalException {
     	List<Student> result = new ArrayList<Student>();
-    	for(Student student:students) {
-    		if (student.getGrade()!=null && student.getGrade()>=filterLimitGrade) {
-    			result.add(student);
-    		}
-    	}
-    	return result;
+    
     	//TODO
     	//ici filter les students dont la note est <10
-		//throw new TechnicalException("Erreur : filtre non implémenté!");
+		throw new TechnicalException("Erreur : filtre non implémenté!");
+    	
 	}
 
 	/**
