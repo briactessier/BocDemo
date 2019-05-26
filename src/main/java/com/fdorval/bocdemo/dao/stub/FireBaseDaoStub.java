@@ -22,9 +22,9 @@ public class FireBaseDaoStub implements FireBaseDao {
 	@Override
 	public List<Student> getStudents() throws TechnicalException {
 		List<Student> result = new ArrayList<Student>();
-		result.add(new Student("Dark Vador", 8));
-		result.add(new Student("Chewbacca", 18));
-		result.add(new Student("R2D2", 8));
+		result.add(new Student("Dark", "Vador", 8));
+		result.add(new Student("Luke", "Skywalker", 18));
+		result.add(new Student("R2", "D2", 8));
 		return result;
 
 

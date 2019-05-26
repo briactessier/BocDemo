@@ -12,6 +12,12 @@ public class Student {
 	 */
 	String name;
 	
+
+	/**
+	 * student name
+	 */
+	String firstName;
+	
 	/**
 	 * student grade
 	 */
@@ -22,13 +28,12 @@ public class Student {
 	 */
 	Student(){	
 	}
+
 	
-	/**
-	 * constructeur
-	 */
-	public Student(String name, Integer grade) {
+	public Student(String name, String firstName, int grade) {
 		super();
 		this.name = name;
+		this.firstName = firstName;
 		this.grade = grade;
 	}
 
@@ -41,6 +46,14 @@ public class Student {
 		this.name = name;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 	public Integer getGrade() {
 		return grade;
 	}
@@ -51,8 +64,10 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", grade=" + grade + "]";
+		return "Student [name=" + name + ", firstName=" + firstName + ", grade=" + grade + "]";
 	}
+	
+
 	
 	
 

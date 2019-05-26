@@ -20,7 +20,14 @@ import com.fdorval.bocdemo.dao.mock.FireBaseDaoMock;
 import com.fdorval.bocdemo.model.Student;
 
 
-
+/**
+ * tests unitaires mockés : les données sont injectées à chaque test
+ * 
+ * Mock : données dynamiques
+ * 
+ * @author françois
+ *
+ */
 @RunWith(SpringRunner.class)
 @ActiveProfiles({"test", "mock"})
 @ContextConfiguration(classes = {BocBusiness.class, FireBaseDaoMock.class})
@@ -40,9 +47,9 @@ public class BocdemoUnitTestsMock {
 	@Test
 	public void testGetSudents() {
 		List<Student> result = new ArrayList<Student>();
-		result.add(new Student("Harry", 12));
-		result.add(new Student("Hermione", 18));
-		result.add(new Student("Voldemort", 8));
+		result.add(new Student("Harry", "Potter", 12));
+		result.add(new Student("Hermione", "Granger", 18));
+		result.add(new Student("Voldemort", "Jedusor", 8));
         try {
         	FireBaseDaoMock fireBaseDaoMock = (FireBaseDaoMock) fireBaseDao;
 
@@ -64,17 +71,36 @@ public class BocdemoUnitTestsMock {
 	@Test
 	public void testGetAverage() {
 		List<Student> result = new ArrayList<Student>();
-		result.add(new Student("Riri", 12));
-		result.add(new Student("fifi", 10));
-		result.add(new Student("LouLou", 8));
+		result.add(new Student("Harry", "Potter", 12));
+		result.add(new Student("Voldemort", "Jedusor", 8));
         try {
         	FireBaseDaoMock fireBaseDaoMock = (FireBaseDaoMock) fireBaseDao;
 
 			Mockito.when(fireBaseDaoMock.getMockDelegate(). getStudents()).thenReturn(result);
+	
+		
 			Integer averageGrade = bocBusiness.getAverageGrade();
 			LOG.info("averageGrade -> " + averageGrade);
 			
 			Assert.assertTrue(averageGrade == 10);
+
+		} catch (Exception e) {
+			Assert.fail();
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testGetAverageNull() {
+		
+        try {
+        	FireBaseDaoMock fireBaseDaoMock = (FireBaseDaoMock) fireBaseDao;
+
+			Mockito.when(fireBaseDaoMock.getMockDelegate(). getStudents()).thenReturn(null);
+			Integer averageGrade = bocBusiness.getAverageGrade();
+			LOG.info("averageGrade -> " + averageGrade);
+			
+			Assert.assertTrue(averageGrade == null);
 
 		} catch (Exception e) {
 			Assert.fail();

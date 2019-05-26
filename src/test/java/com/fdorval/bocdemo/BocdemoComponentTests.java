@@ -15,7 +15,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.fdorval.bocdemo.model.Student;
 
+
+/**
+ * test de composant bouchonné : les données viennent de
+ * com.fdorval.bocdemo.dao.stub.FireBaseDaoStub
+ * @author françois
+ *
+ */
 @RunWith(SpringRunner.class)
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -31,8 +39,9 @@ public class BocdemoComponentTests {
 	    
 	    @Test
 	    public void shouldReturnStudents() throws Exception {
-	        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/students",
-	                String.class)).contains("R2D2");
+	    	Student[] students = this.restTemplate.getForObject("http://localhost:" + port + "/students",
+	                Student[].class);
+	    	assertThat(students[0].getFirstName().equals("R2"));
 	    }
 	    
 	    @Test

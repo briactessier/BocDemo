@@ -14,7 +14,15 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.fdorval.bocdemo.model.Student;
 
+
+/**
+ * test d'intégration NON bouchonné : les données viennent de firebase
+ * -> test dépendant des données -> instable
+ * @author françois
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class BocdemoIntegrationTests {
@@ -29,8 +37,9 @@ public class BocdemoIntegrationTests {
 	    
 	    @Test
 	    public void shouldReturnStudents() throws Exception {
-	        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/students",
-	                String.class)).contains("Maurice");
+	    	Student[] students = this.restTemplate.getForObject("http://localhost:" + port + "/students",
+	                Student[].class);
+	    	assertThat(students[0].getName().equals("Stark"));
 	    }
 	    
 	    @Test

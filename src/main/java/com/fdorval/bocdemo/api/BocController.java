@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fdorval.bocdemo.business.BocBusiness;
@@ -18,8 +19,8 @@ public class BocController {
 	BocBusiness bocBusiness;
 	
 	 @RequestMapping(value ="/students",  method = RequestMethod.GET)
-	    public List<Student> getStudents() throws TechnicalException {
-			return bocBusiness.getStudents();
+	    public List<Student> getStudents(@RequestParam(value = "filterLimitGrade", defaultValue = "") String filterLimitGrade ) throws TechnicalException {
+		 return bocBusiness.getStudents(filterLimitGrade);
 	    }
 	 
 	 @RequestMapping(value ="/average",  method =  RequestMethod.GET)

@@ -24,7 +24,7 @@ public class TechnicalException extends Exception {
 		super(message, e);
 	}
 	
-	TechnicalException(String message){
+	public TechnicalException(String message){
 		super(message);
 	}
 

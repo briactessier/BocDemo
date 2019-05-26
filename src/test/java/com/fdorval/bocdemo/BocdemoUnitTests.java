@@ -17,7 +17,14 @@ import com.fdorval.bocdemo.dao.stub.FireBaseDaoStub;
 import com.fdorval.bocdemo.model.Student;
 
 
-
+/**
+ * tests unitaires bouchonnés : les données viennent de 
+ * com.fdorval.bocdemo.dao.stub.FireBaseDaoStub
+ * 
+ * Stub : données statiques
+ * @author françois
+ *
+ */
 @RunWith(SpringRunner.class)
 @ActiveProfiles("test")
 @ContextConfiguration(classes = {BocBusiness.class, FireBaseDaoStub.class})
@@ -40,7 +47,7 @@ public class BocdemoUnitTests {
 			for (Student student : students) {
 				LOG.info("-> " + student);
 			}
-			Assert.assertEquals(students.get(1).getName(), "Chewbacca");
+			Assert.assertEquals(students.get(1).getName(), "Luke");
 
 		} catch (Exception e) {
 			Assert.fail();
