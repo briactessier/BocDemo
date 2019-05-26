@@ -12,6 +12,11 @@ import com.fdorval.bocdemo.dao.FireBaseDao;
 import com.fdorval.bocdemo.model.Student;
 import com.fdorval.bocdemo.util.exception.TechnicalException;
 
+/**
+ * un bouchon bête et méchant
+ * @author franc
+ *
+ */
 @Profile("test")
 @Repository
 public class FireBaseDaoStub implements FireBaseDao {

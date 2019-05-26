@@ -52,10 +52,7 @@ public class BocdemoUnitTestsMock {
 		result.add(new Student("Voldemort", "Jedusor", 8));
         try {
         	FireBaseDaoMock fireBaseDaoMock = (FireBaseDaoMock) fireBaseDao;
-
-			Mockito.when(fireBaseDaoMock.getMockDelegate(). getStudents()).thenReturn(result);
-	
-		
+			Mockito.when(fireBaseDaoMock.getMockDelegate(). getStudents()).thenReturn(result);			
 			List<Student> students = bocBusiness.getStudents();
 			for (Student student : students) {
 				LOG.info("-> " + student);
@@ -75,10 +72,7 @@ public class BocdemoUnitTestsMock {
 		result.add(new Student("Voldemort", "Jedusor", 8));
         try {
         	FireBaseDaoMock fireBaseDaoMock = (FireBaseDaoMock) fireBaseDao;
-
 			Mockito.when(fireBaseDaoMock.getMockDelegate(). getStudents()).thenReturn(result);
-	
-		
 			Integer averageGrade = bocBusiness.getAverageGrade();
 			LOG.info("averageGrade -> " + averageGrade);
 			

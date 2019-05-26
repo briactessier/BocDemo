@@ -41,8 +41,16 @@ public class BocdemoComponentTests {
 	    public void shouldReturnStudents() throws Exception {
 	    	Student[] students = this.restTemplate.getForObject("http://localhost:" + port + "/students",
 	                Student[].class);
-	    	assertThat(students[0].getFirstName().equals("R2"));
+	    	assertThat(students.length==3);
 	    }
+	    
+	    @Test
+	    public void shouldReturnStudentsFiltered() throws Exception {
+	    	Student[] students = this.restTemplate.getForObject("http://localhost:" + port + "/students?filterLimitGrade=8",
+	                Student[].class);
+	    	assertThat(students.length==2);
+	    }
+	        
 	    
 	    @Test
 	    public void wrongUrlIn404() throws Exception {

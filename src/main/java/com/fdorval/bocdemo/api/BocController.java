@@ -12,6 +12,11 @@ import com.fdorval.bocdemo.business.BocBusiness;
 import com.fdorval.bocdemo.model.Student;
 import com.fdorval.bocdemo.util.exception.TechnicalException;
 
+/**
+ * la couche du hat de votre appli (point d'entrée des services REST)
+ * @author franc
+ *
+ */
 @RestController
 public class BocController {
 

@@ -19,6 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * couche d'accès firebase
+ * @author franc
+ *
+ */
 @Profile("default")
 @Repository
 public class FireBaseDaoImpl implements FireBaseDao {
